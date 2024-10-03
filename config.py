@@ -8,7 +8,7 @@ STOCKS_DIRECTORY = 'stocks/'
 EXCHANGES_FILEPATH = 'exchanges.json'
 
 # Some flags
-INITIALIZE_ON_RUN = True
+FETCH_ON_RUN = True
 GRADIO_PUBLIC = True
 LLM_MODEL = "gpt-4o-mini"
 
