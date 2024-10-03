@@ -3,7 +3,6 @@ from chromadb.config import DEFAULT_TENANT, DEFAULT_DATABASE, Settings
 from langchain_core.documents import Document
 from langchain_openai import OpenAIEmbeddings
 from utility import stock_data_helper
-from langchain_text_splitters import RecursiveJsonSplitter
 import os
 try:
     import secret
@@ -13,6 +12,7 @@ except:
     
 def get_vectordb():
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large", api_key = OPENAIKEY)
+    print("Loading local data")
     tickers = stock_data_helper.get_stock_codes("PSE")
     stocks = [stock_data_helper.get_stock_data("PSE", i['Code']) for i in tickers]
 
@@ -48,7 +48,7 @@ def get_vectordb():
         Name: "General/All stocks/tickers/companies in the philippines",
         Country: "Philippines"
         !HISTORICAL DATA:
-        {str(stock_data_helper.get_stock_codes)}
+        {str(stock_data_helper.get_stock_codes("PSE"))}
         """, 
         metadata ={
                 "Name": "General/All stocks/tickers/companies in the philippines",

@@ -4,7 +4,6 @@ BASE_DATA_PATH = 'data/'
 # Directories must end with a '/'
 TICKERS_DIRECTORY = 'tickers/'
 STOCKS_DIRECTORY = 'stocks/'
-FUSED_DATA_DIRECTORY = 'fused/'
 # Files may include its following path and must end with the respective extension
 EXCHANGES_FILEPATH = 'exchanges.json'
 
@@ -19,8 +18,7 @@ def get_tickers_directory() -> str:
 def get_stocks_directory() -> str:
     return BASE_DATA_PATH + STOCKS_DIRECTORY
 
-def get_fused_data_directory() -> str:
-    return BASE_DATA_PATH + FUSED_DATA_DIRECTORY
+
 
 def get_exchanges_filepath() -> str:
     return BASE_DATA_PATH + EXCHANGES_FILEPATH

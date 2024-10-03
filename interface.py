@@ -1,8 +1,11 @@
 import gradio as gr
 from controllers import rag, prompt
-vector_db = rag.get_vectordb()
+
+vector_db = None
 
 def get_prompt_response(query:str):
+    if vector_db == None:
+        vector_db = rag.get_vectordb()
     context = vector_db.similarity_search(query,k=10)
     ai_message = prompt.send_prompt(query, str(context))
     return ai_message.content
