@@ -15,6 +15,7 @@ APIKEYS = {
 ```
 _Yes these keys are fake_
 
+**Alternatively**, if you are using a deployment solution such as hugging face. You may ignore creating the secret.py file, instead simply define your API keys in the enviroment variables/secrets.
 
 **2. Dependencies**
 
