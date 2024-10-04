@@ -8,7 +8,7 @@ STOCKS_DIRECTORY = 'stocks/'
 EXCHANGES_FILEPATH = 'exchanges.json'
 
 # Some flags
-FETCH_ON_RUN = True
+FETCH_ON_RUN = False
 GRADIO_PUBLIC = True
 LLM_MODEL = "gpt-4o-mini"
 
@@ -18,7 +18,8 @@ def get_tickers_directory() -> str:
 def get_stocks_directory() -> str:
     return BASE_DATA_PATH + STOCKS_DIRECTORY
 
-
+def get_data_directory() -> str:
+    return BASE_DATA_PATH
 
 def get_exchanges_filepath() -> str:
     return BASE_DATA_PATH + EXCHANGES_FILEPATH

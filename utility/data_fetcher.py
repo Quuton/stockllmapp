@@ -4,8 +4,8 @@ def run():
     print("Acquiring exchanges")
     try:
         stocks.retrieve_exchanges()
-    except:
-        print("Cannot retrieve exchanges from the API")
+    except Exception as e:
+        print(f"Cannot retrieve tickers from the API, Error:{e}")
         exit()
     else:
         print("Exchange list updated!")
@@ -14,8 +14,8 @@ def run():
     print("Acquiring tickers")
     try:
         tickers = stocks.retrieve_tickers("PSE")
-    except:
-        print("Cannot retrieve tickers from the API")
+    except Exception as e:
+        print(f"Cannot retrieve tickers from the API, Error:{e}")
         exit()
     else:
         print("Ticker list updated!")

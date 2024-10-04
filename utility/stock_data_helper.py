@@ -19,7 +19,7 @@ def get_stock_codes(exchange_code:str) -> list[str]:
     return data
 
 def get_stock_data(exchange_code:str, stock_code:str):
-    print("Attempting to load local stock data")
+    print(f"Attempting to load local stock data for {stock_code}")
     try:
         with open(STOCKS_DIRECTORY + f"{exchange_code}/{stock_code}.json", 'r') as file:
             data = json.load(file)

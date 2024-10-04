@@ -1,11 +1,9 @@
 import gradio as gr
 from controllers import rag, prompt
 
-vector_db = None
+vector_db = rag.get_vectordb()
 
 def get_prompt_response(query:str):
-    if vector_db == None:
-        vector_db = rag.get_vectordb()
     context = vector_db.similarity_search(query,k=10)
     ai_message = prompt.send_prompt(query, str(context))
     return ai_message.content
@@ -13,7 +11,7 @@ def get_prompt_response(query:str):
 def initialize():
     with gr.Blocks() as app:
         gr.Markdown("# PSE Stock LLM App")
-        gr.Markdown("> Only PSE Stocks are supported, theres a limit on the API. Also only monthly data is available, daily would be too much")
+        gr.Markdown("> Only PSE Stocks are supported, theres a limit on the API. Also only monthly data is available, daily would be too much for the chromadb to handle.")
 
         main_chat_input = gr.Textbox(label="Start Chatting:")
         

@@ -1,7 +1,6 @@
 import datetime
 import requests
 import config
-import secret 
 import json
 import os
 try:
@@ -13,7 +12,7 @@ except:
 EXCHANGES_FILEPATH = config.get_exchanges_filepath()
 TICKERS_DIRECTORY = config.get_tickers_directory()
 STOCKS_DIRECTORY = config.get_stocks_directory()
-
+BASE_DATA_PATH = config.get_data_directory()
 def search_query(query:str):
     url = f'https://eodhd.com/api/search/{query}?api_token={EODHD_KEY}&fmt=json'
     
@@ -32,6 +31,8 @@ def retrieve_exchanges():
         print(e)
         exit()
     
+    if not os.path.exists(BASE_DATA_PATH):
+        os.makedirs(BASE_DATA_PATH)
 
     with open(EXCHANGES_FILEPATH, 'w') as filename:
         json.dump(exchanges_list, filename)
